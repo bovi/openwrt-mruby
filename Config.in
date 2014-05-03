@@ -1,0 +1,146 @@
+menu "Binaries"
+	depends on PACKAGE_mruby
+
+config MRUBY_BIN
+	bool "Embeddable Ruby Language (Interpreter)"
+	default y
+
+config MRUBY_MRBC
+	bool "Embeddable Ruby Language (Compiler)"
+	default n
+
+config MRUBY_MIRB
+	bool "Interactive mruby Shell"
+	default n
+
+endmenu
+
+menu "GEMs (Core)"
+	depends on PACKAGE_mruby
+
+config MRUBY_GEM_MRUBY_OBJECT_EXT
+	bool "mruby-object-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_EVAL
+	bool "mruby-eval"
+	default n
+
+config MRUBY_GEM_MRUBY_STRUCT
+	bool "mruby-struct"
+	default n
+
+config MRUBY_GEM_MRUBY_NUMERIC_EXT
+	bool "mruby-numeric-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_ARRAY_EXT
+	bool "mruby-array-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_PROC_EXT
+	bool "mruby-proc-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_TOPLEVEL_EXT
+	bool "mruby-toplevel-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_RANDOM
+	bool "mruby-random"
+	default n
+
+config MRUBY_GEM_MRUBY_MATH
+	bool "mruby-math"
+	default n
+
+config MRUBY_GEM_MRUBY_SPRINTF
+	bool "mruby-sprintf"
+	default n
+
+config MRUBY_GEM_MRUBY_FIBER
+	bool "mruby-fiber"
+	default n
+
+config MRUBY_GEM_MRUBY_STRING_EXT
+	bool "mruby-string-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_EXIT
+	bool "mruby-exit"
+	default n
+
+config MRUBY_GEM_MRUBY_ENUM_EXT
+	bool "mruby-enum-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_RANGE_EXT
+	bool "mruby-range-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_STRING_UTF8
+	bool "mruby-string-utf8"
+	default n
+
+config MRUBY_GEM_MRUBY_PRINT
+	bool "mruby-print"
+	default n
+
+config MRUBY_GEM_MRUBY_OBJECTSPACE
+	bool "mruby-objectspace"
+	default n
+
+config MRUBY_GEM_MRUBY_HASH_EXT
+	bool "mruby-hash-ext"
+	default n
+
+config MRUBY_GEM_MRUBY_TIME
+	bool "mruby-time"
+	default n
+
+config MRUBY_GEM_MRUBY_SYMBOL_EXT
+	bool "mruby-symbol-ext"
+	default n
+
+endmenu
+
+menu "GEMs (External)"
+	depends on PACKAGE_mruby
+
+config MRUBY_GEM_IO
+	bool "mruby-io"
+	default n
+
+config MRUBY_GEM_SOCKET
+        bool "mruby-socket"
+        default n
+
+config MRUBY_GEM_THREAD
+        bool "mruby-thread"
+        default n
+
+config MRUBY_GEM_RND
+        bool "mruby-simple-random"
+        default n
+
+config MRUBY_GEM_PROCESS
+        bool "mruby-process"
+        default n
+
+config MRUBY_GEM_PACK
+        bool "mruby-pack"
+        default n
+
+config MRUBY_GEM_ENV
+        bool "mruby-env"
+        default n
+
+config MRUBY_GEM_DIR
+        bool "mruby-dir"
+        default n
+
+config MRUBY_GEM_SLEEP
+        bool "mruby-sleep"
+        default n
+
+endmenu
