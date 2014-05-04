@@ -1,0 +1,158 @@
+menu "Binaries"
+	depends on PACKAGE_mruby
+
+config MRUBY_MRUBY
+	bool "Embeddable Ruby Language (Interpreter)"
+	default y
+
+config MRUBY_MRBC
+	bool "Embeddable Ruby Language (Compiler)"
+	default n
+
+config MRUBY_MIRB
+	bool "Embeddable Ruby Language (Interactive Shell)"
+	default n
+
+config MRUBY_STRIP
+	bool "Embeddable Ruby Language (Strip)"
+	default n
+
+
+endmenu
+
+menu "GEMs (Core)"
+	depends on PACKAGE_mruby
+
+config MRUBY_ARRAY_EXT
+	bool "mruby-array-ext"
+	default n
+
+config MRUBY_ENUM_EXT
+	bool "mruby-enum-ext"
+	default n
+
+config MRUBY_ENUM_LAZY
+	bool "mruby-enum-lazy"
+	default n
+
+config MRUBY_ENUMERATOR
+	bool "mruby-enumerator"
+	default n
+
+config MRUBY_EVAL
+	bool "mruby-eval"
+	default n
+
+config MRUBY_EXIT
+	bool "mruby-exit"
+	default n
+
+config MRUBY_FIBER
+	bool "mruby-fiber"
+	default n
+
+config MRUBY_HASH_EXT
+	bool "mruby-hash-ext"
+	default n
+
+config MRUBY_MATH
+	bool "mruby-math"
+	default n
+
+config MRUBY_NUMERIC_EXT
+	bool "mruby-numeric-ext"
+	default n
+
+config MRUBY_OBJECT_EXT
+	bool "mruby-object-ext"
+	default n
+
+config MRUBY_OBJECTSPACE
+	bool "mruby-objectspace"
+	default n
+
+config MRUBY_PRINT
+	bool "mruby-print"
+	default n
+
+config MRUBY_PROC_EXT
+	bool "mruby-proc-ext"
+	default n
+
+config MRUBY_RANDOM
+	bool "mruby-random"
+	default n
+
+config MRUBY_RANGE_EXT
+	bool "mruby-range-ext"
+	default n
+
+config MRUBY_SPRINTF
+	bool "mruby-sprintf"
+	default n
+
+config MRUBY_STRING_EXT
+	bool "mruby-string-ext"
+	default n
+
+config MRUBY_STRING_UTF8
+	bool "mruby-string-utf8"
+	default n
+
+config MRUBY_STRUCT
+	bool "mruby-struct"
+	default n
+
+config MRUBY_SYMBOL_EXT
+	bool "mruby-symbol-ext"
+	default n
+
+config MRUBY_TIME
+	bool "mruby-time"
+	default n
+
+config MRUBY_TOPLEVEL_EXT
+	bool "mruby-toplevel-ext"
+	default n
+
+
+endmenu
+
+menu "GEMs (External)"
+	depends on PACKAGE_mruby
+
+config MRUBY_IO
+	bool "mruby-io"
+	default n
+
+config MRUBY_SLEEP
+	bool "mruby-sleep"
+	default n
+
+config MRUBY_SOCKET
+	bool "mruby-socket"
+	default n
+
+config MRUBY_THREAD
+	bool "mruby-thread"
+	default n
+
+config MRUBY_PROCESS
+	bool "mruby-process"
+	default n
+
+config MRUBY_PACK
+	bool "mruby-pack"
+	default n
+
+config MRUBY_ENV
+	bool "mruby-env"
+	default n
+
+config MRUBY_DIR
+	bool "mruby-dir"
+	default n
+
+
+endmenu
+
