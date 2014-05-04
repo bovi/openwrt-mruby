@@ -6,11 +6,11 @@ PKG_VERSION:=1.0.1
 PKG_RELEASE:=1
 PKG_REV:=8e4d3bb94e869679486ebeaefcc586b4e3ed5cb7
 
-PKG_SOURCE:=$(PKG_VERSION).zip
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=git://github.com/FlowGroup/mruby.git
-PKG_SOURCE_VERSION:=$(PKG_VERSION)
+PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_GEMBOX:=$(PKG_BUILD_DIR)/mrbgems/openwrt.gembox
 
@@ -34,6 +34,10 @@ define Package/mruby/config
 endef
 
 define Build/Configure
+	(cd $(SOURCE);\
+	cp build_config.rb $(PKG_BUILD_DIR)/build_config.rb\
+	)
+
 	(cd $(PKG_BUILD_DIR);\
 	echo "MRuby::GemBox.new do |conf|" >> $(PKG_GEMBOX)\
 	)
