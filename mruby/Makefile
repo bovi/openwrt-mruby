@@ -296,7 +296,7 @@ define Package/mruby/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build/$(ARCH)/bin/mirb $(1)/usr/bin/
   endif
 
-  ifeq ($(CONFIG_MRUBY_BIN),y)
+  ifeq ($(CONFIG_MRUBY_MRUBY),y)
 	echo "Install 'mruby'"
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build/$(ARCH)/bin/mruby $(1)/usr/bin/
   endif
