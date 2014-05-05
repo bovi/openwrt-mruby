@@ -133,10 +133,6 @@ config MRUBY_SOCKET
 	bool "mruby-socket"
 	default n
 
-config MRUBY_THREAD
-	bool "mruby-thread"
-	default n
-
 config MRUBY_PROCESS
 	bool "mruby-process"
 	default n
