@@ -4,12 +4,11 @@ include $(INCLUDE_DIR)/kernel.mk
 PKG_NAME:=mruby
 PKG_VERSION:=head
 PKG_RELEASE:=2
-PKG_REV:=8e4d3bb94e869679486ebeaefcc586b4e3ed5cb7
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/ximenzi/mruby.git
+PKG_SOURCE_URL:=git://github.com/mruby/mruby.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_GEMBOX:=$(PKG_BUILD_DIR)/mrbgems/openwrt.gembox
@@ -245,6 +244,12 @@ define Build/Configure
   ifeq ($(CONFIG_MRUBY_DIR),y)
 	(cd $(PKG_BUILD_DIR);\
 	echo "conf.gem :github => \"iij/mruby-dir\"" >> $(PKG_GEMBOX)\
+	)
+  endif
+
+  ifeq ($(CONFIG_MRUBY_SINATIC),y)
+	(cd $(PKG_BUILD_DIR);\
+	echo "conf.gem :github => \"mattn/mruby-sinatic\"" >> $(PKG_GEMBOX)\
 	)
   endif
 

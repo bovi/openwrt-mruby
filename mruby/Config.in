@@ -149,6 +149,9 @@ config MRUBY_DIR
 	bool "mruby-dir"
 	default n
 
+config MRUBY_SINATIC
+	bool "mruby-sinatic"
+	default n
 
 endmenu
 
