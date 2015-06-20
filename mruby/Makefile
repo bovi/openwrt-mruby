@@ -2,14 +2,14 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=mruby
-PKG_VERSION:=1.0.1
-PKG_RELEASE:=1
+PKG_VERSION:=head
+PKG_RELEASE:=2
 PKG_REV:=8e4d3bb94e869679486ebeaefcc586b4e3ed5cb7
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/FlowGroup/mruby.git
+PKG_SOURCE_URL:=git://github.com/ximenzi/mruby.git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_GEMBOX:=$(PKG_BUILD_DIR)/mrbgems/openwrt.gembox
@@ -208,43 +208,43 @@ define Build/Configure
 
   ifeq ($(CONFIG_MRUBY_IO),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-io\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"iij/mruby-io\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
   ifeq ($(CONFIG_MRUBY_SLEEP),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-sleep\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"matsumoto-r/mruby-sleep\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
   ifeq ($(CONFIG_MRUBY_SOCKET),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-socket\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"iij/mruby-socket\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
   ifeq ($(CONFIG_MRUBY_PROCESS),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-process\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"iij/mruby-process\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
   ifeq ($(CONFIG_MRUBY_PACK),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-pack\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"iij/mruby-pack\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
   ifeq ($(CONFIG_MRUBY_ENV),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-env\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"iij/mruby-env\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
   ifeq ($(CONFIG_MRUBY_DIR),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"FlowGroup/mruby-dir\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"iij/mruby-dir\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
