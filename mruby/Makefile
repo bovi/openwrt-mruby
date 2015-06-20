@@ -248,9 +248,9 @@ define Build/Configure
 	)
   endif
 
-  ifeq ($(CONFIG_MRUBY_SINATIC),y)
+  ifeq ($(CONFIG_MRUBY_MRICK),y)
 	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :github => \"mattn/mruby-sinatic\"" >> $(PKG_GEMBOX)\
+	echo "conf.gem :github => \"ximenzi/mruby-mrick\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
