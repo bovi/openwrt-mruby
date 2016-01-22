@@ -3,8 +3,8 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=mruby
 PKG_VERSION:=head
-PKG_RELEASE:=2
-PKG_REV:=7cf94bac100931cd80ac0b851d3de298e351b5b9
+PKG_RELEASE:=3
+PKG_REV:=2723b10a01d5a1f50c174a6ec50582ae798aa9ae
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -285,11 +285,6 @@ endef
 
 define Package/mruby/install
   $(INSTALL_DIR) $(1)/usr/bin
-
-  ifeq ($(CONFIG_MRUBY_MRBC),y)
-	echo "Install 'mrbc'"
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build/$(ARCH)/bin/mrbc $(1)/usr/bin/
-  endif
 
   ifeq ($(CONFIG_MRUBY_MIRB),y)
 	echo "Install 'mirb'"
