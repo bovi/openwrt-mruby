@@ -5,10 +5,6 @@ config MRUBY_MRUBY
 	bool "Embeddable Ruby Language (Interpreter)"
 	default y
 
-config MRUBY_MRBC
-	bool "Embeddable Ruby Language (Compiler)"
-	default n
-
 config MRUBY_MIRB
 	bool "Embeddable Ruby Language (Interactive Shell)"
 	default n
