@@ -286,11 +286,6 @@ endef
 define Package/mruby/install
   $(INSTALL_DIR) $(1)/usr/bin
 
-  ifeq ($(CONFIG_MRUBY_MRBC),y)
-	echo "Install 'mrbc'"
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build/$(ARCH)/bin/mrbc $(1)/usr/bin/
-  endif
-
   ifeq ($(CONFIG_MRUBY_MIRB),y)
 	echo "Install 'mirb'"
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build/$(ARCH)/bin/mirb $(1)/usr/bin/
