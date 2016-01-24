@@ -173,12 +173,6 @@ define Build/Configure
 	)
   endif
 
-  ifeq ($(CONFIG_MRUBY_STRING_UTF8),y)
-	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :core => \"mruby-string-utf8\"" >> $(PKG_GEMBOX)\
-	)
-  endif
-
   ifeq ($(CONFIG_MRUBY_STRUCT),y)
 	(cd $(PKG_BUILD_DIR);\
 	echo "conf.gem :core => \"mruby-struct\"" >> $(PKG_GEMBOX)\

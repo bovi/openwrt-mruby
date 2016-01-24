@@ -95,10 +95,6 @@ config MRUBY_STRING_EXT
 	bool "mruby-string-ext"
 	default n
 
-config MRUBY_STRING_UTF8
-	bool "mruby-string-utf8"
-	default n
-
 config MRUBY_STRUCT
 	bool "mruby-struct"
 	default n
