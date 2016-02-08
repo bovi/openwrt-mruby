@@ -2,9 +2,11 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=mruby
-PKG_VERSION:=head
-PKG_RELEASE:=2
-PKG_REV:=7cf94bac100931cd80ac0b851d3de298e351b5b9
+PKG_LICENSE:=MIT
+PKG_LICENSE_FILES:=MITL
+PKG_VERSION:=1.2-20160208-$(PKG_SOURCE_VERSION)
+PKG_RELEASE:=1
+PKG_REV:=62b06ab4d428dec51a32d4da46e99206912141e7
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -14,19 +16,22 @@ PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_GEMBOX:=$(PKG_BUILD_DIR)/mrbgems/openwrt.gembox
 
+PKG_BUILD_DEPENDS:=ruby/host
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mruby
-  SUBMENU:=mruby
+  SUBMENU:=Ruby
   SECTION:=lang
   CATEGORY:=Languages
-  TITLE:=Embeddable Ruby Language
+  TITLE:=Embeddable Ruby Implementation
   URL:=http://www.mruby.org
   MAINTAINER:=Daniel Bovensiepen <daniel@bovensiepen.net>
 endef
 
 define Package/mruby/description
-  mruby is an embeddable version of the Ruby Programming language.
+  mruby is an minimal, modular and embeddable version of the
+  Ruby Programming language.
 endef
 
 define Package/mruby/config
@@ -42,11 +47,24 @@ define Build/Configure
 	echo "MRuby::GemBox.new do |conf|" >> $(PKG_GEMBOX)\
 	)
 
+	# For now we include the compiler GEM into every build
+	# TODO: should be handled depending on needs, might
+	# need more intelligence to decide this automatically...
+	(cd $(PKG_BUILD_DIR);\
+	echo "conf.gem :core => \"mruby-compiler\"" >> $(PKG_GEMBOX)\
+	)
+
   # Add Binaries if selected
 
   ifeq ($(CONFIG_MRUBY_MIRB),y)
 	(cd $(PKG_BUILD_DIR);\
 	echo "conf.gem :core => \"mruby-bin-mirb\"" >> $(PKG_GEMBOX)\
+	)
+  endif
+
+  ifeq ($(CONFIG_MRUBY_MRBC),y)
+	(cd $(PKG_BUILD_DIR);\
+	echo "conf.gem :core => \"mruby-bin-mrbc\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
@@ -61,7 +79,6 @@ define Build/Configure
 	echo "conf.gem :core => \"mruby-bin-strip\"" >> $(PKG_GEMBOX)\
 	)
   endif
-
 
   # Add Core GEMs if selected
 
@@ -89,6 +106,12 @@ define Build/Configure
 	)
   endif
 
+  ifeq ($(CONFIG_MRUBY_ERROR),y)
+	(cd $(PKG_BUILD_DIR);\
+	echo "conf.gem :core => \"mruby-error\"" >> $(PKG_GEMBOX)\
+	)
+  endif
+
   ifeq ($(CONFIG_MRUBY_EVAL),y)
 	(cd $(PKG_BUILD_DIR);\
 	echo "conf.gem :core => \"mruby-eval\"" >> $(PKG_GEMBOX)\
@@ -110,6 +133,12 @@ define Build/Configure
   ifeq ($(CONFIG_MRUBY_HASH_EXT),y)
 	(cd $(PKG_BUILD_DIR);\
 	echo "conf.gem :core => \"mruby-hash-ext\"" >> $(PKG_GEMBOX)\
+	)
+  endif
+
+  ifeq ($(CONFIG_MRUBY_KERNEL_EXT),y)
+	(cd $(PKG_BUILD_DIR);\
+	echo "conf.gem :core => \"mruby-kernel-ext\"" >> $(PKG_GEMBOX)\
 	)
   endif
 
@@ -170,12 +199,6 @@ define Build/Configure
   ifeq ($(CONFIG_MRUBY_STRING_EXT),y)
 	(cd $(PKG_BUILD_DIR);\
 	echo "conf.gem :core => \"mruby-string-ext\"" >> $(PKG_GEMBOX)\
-	)
-  endif
-
-  ifeq ($(CONFIG_MRUBY_STRING_UTF8),y)
-	(cd $(PKG_BUILD_DIR);\
-	echo "conf.gem :core => \"mruby-string-utf8\"" >> $(PKG_GEMBOX)\
 	)
   endif
 

@@ -2,21 +2,20 @@ menu "Binaries"
 	depends on PACKAGE_mruby
 
 config MRUBY_MRUBY
-	bool "Embeddable Ruby Language (Interpreter)"
+	bool "mruby interpreter"
 	default y
 
 config MRUBY_MRBC
-	bool "Embeddable Ruby Language (Compiler)"
+	bool "mruby compiler"
 	default n
 
 config MRUBY_MIRB
-	bool "Embeddable Ruby Language (Interactive Shell)"
+	bool "mruby interactive shell"
 	default n
 
 config MRUBY_STRIP
-	bool "Embeddable Ruby Language (Strip)"
+	bool "mruby strip"
 	default n
-
 
 endmenu
 
@@ -39,6 +38,10 @@ config MRUBY_ENUMERATOR
 	bool "mruby-enumerator"
 	default n
 
+config MRUBY_ERROR
+	bool "mruby-error"
+	default n
+
 config MRUBY_EVAL
 	bool "mruby-eval"
 	default n
@@ -53,6 +56,10 @@ config MRUBY_FIBER
 
 config MRUBY_HASH_EXT
 	bool "mruby-hash-ext"
+	default n
+
+config CONFIG_MRUBY_KERNEL_EXT
+	bool "mruby-kernel-ext"
 	default n
 
 config MRUBY_MATH
@@ -95,10 +102,6 @@ config MRUBY_STRING_EXT
 	bool "mruby-string-ext"
 	default n
 
-config MRUBY_STRING_UTF8
-	bool "mruby-string-utf8"
-	default n
-
 config MRUBY_STRUCT
 	bool "mruby-struct"
 	default n
@@ -114,7 +117,6 @@ config MRUBY_TIME
 config MRUBY_TOPLEVEL_EXT
 	bool "mruby-toplevel-ext"
 	default n
-
 
 endmenu
 
